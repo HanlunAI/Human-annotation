@@ -1,0 +1,33 @@
+<!doctype html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!--<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">-->
+  <link rel="stylesheet" href="http://hanlunai.com/cssjs/css/bootstrap-4.0.0/bootstrap.min.css">
+  <link rel="stylesheet" href="http://hanlunai.com/cssjs/css/app.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  {% block head %}
+  <title>{% block title %}{% endblock %} Annotation Pipeline</title>
+  {% endblock %}
+</head>
+
+<body>
+  {% block navbar %}
+  <nav class="navbar navbar-light bg-faded">
+    <a class="navbar-brand" href="#">
+      Annotation Pipeline
+    </a>
+  </nav>
+  {% endblock %}
+  <div class="container-fluid">
+    <div id="app">
+      {% block app %}{% endblock %}
+    </div>
+  </div>
+  {% block modals %}
+  {% endblock %}
+  {% block scripts %}
+  <script type="text/javascript" src="http://hanlunai.com/cssjs/app.bundle.js"></script>
+  {% endblock %}
+
+</body>

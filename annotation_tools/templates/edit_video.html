@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+{% block title %}{% endblock %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="http://hanlunai.com/cssjs/css/leaflet/leaflet.css">
+<link rel="stylesheet" href="http://hanlunai.com/cssjs/css/leaflet.draw/leaflet.draw.css">
+
+<style>
+    .leaflet-container{
+        height: 600px;
+        width: 700px;
+    }
+    /* Holds the instances (with the delete buttons)*/
+    #annotationAccordion{
+        overflow: auto;
+        height: 550px;
+    }
+    .slidecontainer {
+        width: 100%;
+    }
+
+    .slider {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 25px;
+        background: #d3d3d3;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+    }
+
+    .slider:hover {
+        opacity: 1;
+    }
+
+    .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 25px;
+        height: 25px;
+        background: #4CAF50;
+        cursor: pointer;
+    }
+
+    .slider::-moz-range-thumb {
+        width: 25px;
+        height: 25px;
+        background: #4CAF50;
+        cursor: pointer;
+    }
+</style>
+{% endblock %}
+
+<!-- No navbar for this task, waste of space... -->
+{% block navbar %}{% endblock %}
+
+{% block modals %}
+<div>
+    <div class="modal fade" id="categorySelectionModal" data-backdrop="static" tabIndex="-1" role="dialog" aria-labelledby="categorySelectionModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div id="categorySelectionModalContent" class="modal-content">
+            </div>
+        </div>
+    </div>
+
+    <div style="margin: auto;display: table;">
+
+        <table>
+            <tr>
+                <td>
+
+                </td>
+                <td valign="top" style="padding-left: 15px">
+
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script type="text/javascript">
+
+    var taskId = {{ task_id|tojson }};
+    var imageIds = {{ image_ids|tojson }};
+    var categories = {{ categories|tojson }};
+
+    document.V.editVideo(taskId, imageIds, categories);
+
+</script>
+
+{% endblock %}

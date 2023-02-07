@@ -1,0 +1,6 @@
+.idea
+.DS_Store
+node_modules
+frames_resized/
+frames/
+*.mp4
